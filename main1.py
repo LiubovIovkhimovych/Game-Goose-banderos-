@@ -20,6 +20,9 @@ COLOR_GREEN = (0, 255, 0)
 main1_display = pygame.display.set_mode((WIDTH, HEIGHT))
 
 bg = pygame.transform.scale(pygame.image.load('background.png'), (WIDTH, HEIGHT))
+bg_X1 = 0
+bg_X2 = bg.get_width()
+bg_move = 3
 
 player_size = (20, 20)
 player = pygame.Surface(player_size)
@@ -71,8 +74,12 @@ while playing:
             enemies.append(create_enemy())
         if event.type == CREATE_BONUS:
             bonusies.append(create_bonus())
-            
-    main1_display.blit(bg, (0, 0)) 
+
+    bg_X1 -= bg_move
+    bg_X2 -= bg_move
+
+    main1_display.blit(bg, (bg_X1, 0)) 
+    main1_display.blit(bg, (bg_X2, 0))
 
     keys = pygame.key.get_pressed()
 
