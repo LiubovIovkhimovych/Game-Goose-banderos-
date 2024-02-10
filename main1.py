@@ -19,9 +19,11 @@ COLOR_GREEN = (0, 255, 0)
 
 main1_display = pygame.display.set_mode((WIDTH, HEIGHT))
 
+bg = pygame.transform.scale(pygame.image.load('background.png'), (WIDTH, HEIGHT))
+
 player_size = (20, 20)
 player = pygame.Surface(player_size)
-player.fill(COLOR_WHITE)
+player.fill(COLOR_BLACK)
 player_rect = player.get_rect()
 player_move_down = [0, 1]
 player_move_right = [1, 0]
@@ -69,8 +71,8 @@ while playing:
             enemies.append(create_enemy())
         if event.type == CREATE_BONUS:
             bonusies.append(create_bonus())
-    
-    main1_display.fill(COLOR_BLACK)
+            
+    main1_display.blit(bg, (0, 0)) 
 
     keys = pygame.key.get_pressed()
 
@@ -100,7 +102,7 @@ while playing:
             score += 1
             bonusies.pop(bonusies.index(bonus))
 
-    main1_display.blit(FONT.render(str(score), True, COLOR_WHITE),(WIDTH-50, 20))
+    main1_display.blit(FONT.render(str(score), True, COLOR_BLACK),(WIDTH-50, 20))
     main1_display.blit(player, player_rect)
 
     pygame.display.flip()
@@ -112,7 +114,7 @@ while playing:
     for bonus in bonusies:
         if bonus[1].top > HEIGHT:
             bonusies.pop(bonusies.index(bonus))
-# print "Додаємо зміни в GitHab"
+
 
 
     
