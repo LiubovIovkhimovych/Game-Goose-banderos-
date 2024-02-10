@@ -112,7 +112,7 @@ while playing:
     for bonus in bonusies:
         if bonus[1].top > HEIGHT:
             bonusies.pop(bonusies.index(bonus))
-
+# print "Додаємо зміни в GitHab"
 
 
     
