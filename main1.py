@@ -28,7 +28,7 @@ bg_move = 3
 IMAGE_PATH = "Goose"
 PLAYER_IMAGES = os.listdir(IMAGE_PATH)
 
-player_size = (20, 20)
+player_size = (10, 10)
 player = pygame.image.load('player.png').convert_alpha() #Surface(player_size)
 #player.fill(COLOR_BLACK)
 player_rect = player.get_rect()
@@ -36,11 +36,11 @@ player_move_down = [0, 4]
 player_move_right = [4, 0]
 player_move_top = [0, -4]
 player_move_left = [-4, 0]
-                    
+                     
 def create_enemy():
-    enemy_size = (30, 30)
-    enemy = pygame.Surface(enemy_size)
-    enemy.fill(COLOR_BLUE)
+    enemy_size = (20, 20)
+    enemy = pygame.image.load('enemy.png') # Surface(enemy_size)
+    # enemy.fill(COLOR_BLUE)
     enemy_rect = pygame.Rect(WIDTH, random.randint(0, HEIGHT), *enemy_size)
     enemy_move = [random.randint(-8, -4), 0]
     return [enemy, enemy_rect, enemy_move]
